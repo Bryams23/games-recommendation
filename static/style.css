@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    h1 {
+        font-size: 120px;
+        text-align: center;
+        color: rgba(255, 255, 255, .4);
+    }
+    h2 {
+        font-size: 32px;
+        color: #555;
+        text-align: center;
+        font-weight: 300;
+        letter-spacing: 2px;
+        margin: 20px 0 10px;
+    }
+    span {
+        color: #4e0021;
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 2px;
+    }
+    button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 4px;
+    font-size: 18px;
+    transition: .3s;
+    background-image: linear-gradient(150deg, #9827bb 0%, #2092a1);
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    cursor: pointer;
+    }
+    button span {
+    background-color: black;
+    border-radius: 6px;
+    padding: 16px 24px;
+    transition: .3s;
+    }
+    button:hover span{
+    background: none
+    }
+    button:active {
+    transform: scale(0.9);
+    }
+    #main_container {
+    background-image: url('pexels-eye4dtail-807330.jpg');
+    border: 1px solid blue;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    height: 200vh;
+    width: 100vw;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    } 
+    ::-webkit-scrollbar {
+    width: 10px;
+    } 
+    

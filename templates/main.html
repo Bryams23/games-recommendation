@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./static/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+<div id="main_container">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="container-fluid">
+        <header>
+        <a class="navbar-brand" href="#">
+          <img src="./static/Designer.jpeg" alt="Logo" width="220" height="220" class="d-inline-block align-text-top">
+        </a>
+      </div>
+      <a class="navbar-brand" href="#">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Rating Games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('Recommendations') }}">Recommendations</a>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </header>
+      </div>
+    </div>
+  </nav>
+  <h1 style="font-family: Ethan, sans-serif; font-size: 40px; color: rgba(255, 153, 0, 0.979);">WELCOME TO OUR COMMUNITY, FEEL FREE TO SEARCH YOUR VIDEOGAME</h1>
+  <p style="font-family: Ethan, sans-serif; font-size: 24px; color: rgb(116, 124, 7);">This enviroment was fully developed for your curiosity for video games</p> 
+<div id="main_content">
+<div>
+  <h1>TOP 20 SUGGESTED VIDEO GAMES
+    <div>
+  {% for item in range(content|length) %}
+    <h2> {{ content[item]['name']}}</p>
+    <div>
+      <span><img src="{{ content[item]['imagen']}}"></span>
+      <p>{{ content[item]['url']}}</p>
+    </div>
+    <span>{{ content[item]['genero']}}</span>
+    <div>
+    <span>{{ content[item]['storyline']}}</span>
+  </div>
+    <button>{{ content[item]['screenshots']}} : <p>View the image</p></button>
+    <div>
+      <span>{{ content[item]['summary']}}</span>
+      <div>
+        <span>{{ content[item]['fecha']}}</span>
+        <div>
+          <span>{{ content[item]['plataforma']}}</span>
+        </div>
+  {% endfor %}
+</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+ <footer>
+    <div class="container-fluid">
+        <div class="col">
+          <h5 style="font-family: Ethan, sans-serif; font-size: 20px; color: rgba(255, 153, 0, 0.979);">INFORMATION</h5>
+          <ul>
+            <button><li>Need Help?</li></button>
+            <div>
+          <button><li>Instagram</li></button>
+          <div>
+        <button><li>Facebook</li></button>
+          </ul>
+ </footer>       
+
+  </div>
+
+  </nav>
+
+
+
+
+   
+</body>
+</html>
