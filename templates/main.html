@@ -38,30 +38,29 @@
       </div>
     </div>
   </nav>
-  <h1 style="font-family: Ethan, sans-serif; font-size: 40px; color: rgba(255, 153, 0, 0.979);">WELCOME TO OUR COMMUNITY, FEEL FREE TO SEARCH YOUR VIDEOGAME</h1>
+  <h1 class="version1">WELCOME TO OUR COMMUNITY, FEEL FREE TO SEARCH YOUR VIDEOGAME</h1>
   <p style="font-family: Ethan, sans-serif; font-size: 24px; color: rgb(116, 124, 7);">This enviroment was fully developed for your curiosity for video games</p> 
 <div id="main_content">
 <div>
   <h1>TOP 20 SUGGESTED VIDEO GAMES
     <div>
   {% for item in range(content|length) %}
-    <h2> {{ content[item]['name']}}</p>
+    <h2 class="version2"> {{ content[item]['name']}}</p>
     <div>
-      <span><img src="{{ content[item]['imagen']}}"></span>
-      <p>{{ content[item]['url']}}</p>
+      <span><img src="{{ content[item]['cubierta']}}" width="160" height="200"></span>
     </div>
-    <span>{{ content[item]['genero']}}</span>
+    <span class="version4">{{ content[item]['genres']}}</span>
     <div>
-    <span>{{ content[item]['storyline']}}</span>
+    <span class="version3">{{ content[item]['storyline']}}</span>
   </div>
-    <button>{{ content[item]['screenshots']}} : <p>View the image</p></button>
     <div>
       <span>{{ content[item]['summary']}}</span>
       <div>
-        <span>{{ content[item]['fecha']}}</span>
+        <span>{{ content[item]['release_dates']}}</span>
         <div>
-          <span>{{ content[item]['plataforma']}}</span>
+          <span>{{ content[item]['platforms']}}</span>
         </div>
+        <span><img src="{{ content[item]['screenshots']}}" width="160" height="200"></span>
   {% endfor %}
 </h1>
 </div>
