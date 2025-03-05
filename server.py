@@ -12,7 +12,7 @@ app = Flask(__name__)
 def home():
 	#variables
 	content=[]
-	categories = ['genres', 'release_dates', 'platforms']
+	categories = ['genres', 'release_dates', 'platforms', 'rating']	
 	urls = {
 			'genres': 'fields name; where id =',
 			'release_dates': 'fields human; where id =',
@@ -26,6 +26,7 @@ def home():
 		arrayGenres = []
 		arrayRelease = []
 		plataforma = []
+		Ratings = []
 		content.append(response.json()[i])
 		print(response.json()[i])
 		responseImages = post(
