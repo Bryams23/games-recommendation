@@ -19,7 +19,7 @@ def home():
 			'platforms': 'fields abbreviation,alternative_name,category,checksum,created_at,generation,name,platform_family,platform_logo,slug,summary,updated_at,url,versions,websites; where id = '
 		}
 	#root post request
-	response = post('https://api.igdb.com/v4/games', **{'headers': {'Client-ID': 'rpx9sjp7kxzp4nzk2v5qjpg2scl8cw', 'Authorization': 'Bearer ivv1gvdyi46udh4ow9xx9lstyepek3' },'data': 'fields *; limit 2;' })
+	response = post('https://api.igdb.com/v4/games', **{'headers': {'Client-ID': 'rpx9sjp7kxzp4nzk2v5qjpg2scl8cw', 'Authorization': 'Bearer ivv1gvdyi46udh4ow9xx9lstyepek3' },'data': 'fields *; limit 5;' })
 	
  
 	for i in range(len(response.json())):
@@ -34,6 +34,7 @@ def home():
       **{'headers': 
           {'Client-ID': 'rpx9sjp7kxzp4nzk2v5qjpg2scl8cw', 'Authorization': 'Bearer ivv1gvdyi46udh4ow9xx9lstyepek3' },
           'data': f'fields alpha_channel,animated,checksum,game,game_localization,height,image_id,url,width; where game = {str(response.json()[i]["id"])};' })
+  
   
 		try:
 			content[i]['cubierta'] = responseImages.json()[0]['url']
