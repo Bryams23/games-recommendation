@@ -35,6 +35,7 @@ def home():
           {'Client-ID': 'rpx9sjp7kxzp4nzk2v5qjpg2scl8cw', 'Authorization': 'Bearer ivv1gvdyi46udh4ow9xx9lstyepek3' },
           'data': f'fields alpha_channel,animated,checksum,game,game_localization,height,image_id,url,width; where game = {str(response.json()[i]["id"])};' })
   
+  
 		try:
 			content[i]['cubierta'] = responseImages.json()[0]['url']
 		except:
