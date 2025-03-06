@@ -1,11 +1,12 @@
 pipeline {
     agent {
-        node 'remote_node'
+        docker {
+            image 'node:14'        }
     }
     stages {
         stage('Build') {
             steps {
-                echo 'Building...'
+                echo 'node --version'
             }
         }
         stage('Test') {
