@@ -1,18 +1,16 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:14-alpine'
-        }
-    }
+    agent any
     stages {
         stage('Build') {
             steps {
-                sh 'node --version'
+               sh 'python3 -m venv env' 
+               sh 'source env/bin/activate'
+               sh 'pip install pytest'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing...'
+                sh 'python -m pytest'
             }
         }
         stage('Deploy') {
