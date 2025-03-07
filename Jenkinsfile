@@ -10,6 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 //sh 'python -m pytest'
+                echo 'testing...'
             }
         }
         stage('Deploy') {
