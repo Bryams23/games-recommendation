@@ -2,9 +2,8 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            steps {
-               sh 'python3 -m venv env' 
-               sh 'source env/bin/activate'
+            steps {             
+               sh '. env/bin/activate'
                sh 'pip install pytest'
             }
         }
