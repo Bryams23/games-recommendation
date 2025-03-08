@@ -4,8 +4,7 @@ pipeline {
         stage('Build') { 
             steps {   
                 echo 'going to build...'
-                sh '. env/bin/activate'
-                sh 'pip install pandas'
+                sh 'pip list'
         }
         }
         stage('Test') {
