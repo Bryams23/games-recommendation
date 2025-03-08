@@ -4,15 +4,14 @@ pipeline {
         stage('Build') { 
             steps {   
                 echo 'going to build...'
-                sh 'python3 -m venv venv'
                 sh '. venv/bin/activate'
-                sh 'ls'
-                echo "${env.VIRTUAL_ENV}"
+                sh 'pip3 install pytest'
+                sh 'pip3 list'
         }
         }
         stage('Test') {
             steps {
-                sh 'python -m pytest'
+                sh 'python3 -m pytest'
                 echo 'testing...tt'
             }
         }
