@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {             
                sh '. env/bin/activate'
-               sh 'pip install pytest'
+               echo '$VIRTUAL_ENV'
             }
         }
         stage('Test') {
