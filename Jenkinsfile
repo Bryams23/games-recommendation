@@ -4,8 +4,10 @@ pipeline {
         stage('Build') { 
             steps {   
                 echo 'going to build...'
-                sh 'rm -rf env'
+                sh 'python3 -m venv venv'
+                sh '. venv/bin/activate'
                 sh 'ls'
+                echo "${env.VIRTUAL_ENV}"
         }
         }
         stage('Test') {
