@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {             
                sh '. env/bin/activate'
-               echo '$VIRTUAL_ENV'
+               echo '"$VIRTUAL_ENV"'
             }
         }
         stage('Test') {
