@@ -2,14 +2,13 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            steps {       
-               sh 'ls'       
-               sh '. env/bin/activate'
-               when {
+             when {
                     expression { env.VIRTUAL_ENV == 'null' }
                 }
                echo "Es totalmente nulo"
-            }
+            }   
+            steps {    
+               sh '. env/bin/activate'
         }
         stage('Test') {
             steps {
