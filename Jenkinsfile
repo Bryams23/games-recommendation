@@ -4,7 +4,8 @@ pipeline {
         stage('Build') { 
             steps {   
                 echo 'going to build...'
-                sh 'pip list'
+                sh 'rm -rf env'
+                sh 'ls'
         }
         }
         stage('Test') {
