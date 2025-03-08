@@ -4,11 +4,15 @@ pipeline {
         stage('Build') { 
             steps {   
                 echo 'going to build...'
+                sh 'rm -rf env'
+                sh 'python3 -m venv env'
+                sh 'source env/bin/activate'
+                sh 'pip install pytest'
         }
         }
         stage('Test') {
             steps {
-                sh 'python3 -m pytest'
+                sh 'python -m pytest'
                 echo 'testing...tt'
             }
         }
