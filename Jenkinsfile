@@ -1,18 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-            when {
-                expression { env.VIRTUAL_ENV == 'null' }
-            }   
+        stage('Build') { 
             steps {   
-                echo 'totalmente nulo' 
-                sh '. env/bin/activate'
+                echo 'going to build...'
         }
         }
         stage('Test') {
             steps {
-                //sh 'python -m pytest'
+                sh 'python -m pytest'
                 echo 'testing...tt'
             }
         }
