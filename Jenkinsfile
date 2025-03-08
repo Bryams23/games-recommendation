@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {             
                sh '. env/bin/activate'
-               sh 'pip list'
+               sh 'pip install pytest'
             }
         }
         stage('Test') {
