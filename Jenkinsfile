@@ -2,16 +2,19 @@ pipeline {
     agent any
     stages {
         stage('Build') { 
-            steps {   
-                echo 'going to build...'
-                sh 'pip3 install pytest'
-                sh 'pip3 list'
+            steps { 
+                sh '''
+                    echo 'Building...'
+                    . venv/bin/activate
+                    pip install pytest
+                '''  
+
         }
         }
         stage('Test') {
             steps {
-                sh 'python3 -m pytest'
-                echo 'testing...tt'
+                sh 'pytest'
+                
             }
         }
         stage('Deploy') {
