@@ -7,7 +7,6 @@ pipeline {
                     echo 'Building...'
                     . venv/bin/activate
                     pip install pytest
-                    pip install python3.3
                 '''  
 
         }
