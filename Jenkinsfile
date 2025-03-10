@@ -17,22 +17,43 @@ pipeline {
         }
         stage('Test') {
             steps {
-                try 
+                script {
+                try {
                  sh '''
                     . venv/bin/activate
                     which python
                     python -m pytest
                 '''
+                currentBuild.result = 'SUCCESS'
+                }
+                
                 echo "el nombe del objecto es ${params.OBJETO}, laplaya es buena si o no ${params.PLAYA}, el color del objeto es ${params.COLOR}"
                 catch (Exception e) {
                     echo "Error: ${e}"
+                    currentBuild.result = 'FAILURE'
                 }
-            }
-        }
-        stage('Deploy') {
-            steps {
                 
             }
         }
+        stage('Deploy') {
+            when {
+                expression { currentBuild.result == 'SUCCESS' }
+                
+            }
+            
+            steps {
+                echo 'Deploying.. succesfully'
+            }
+        }
+    }
+    post {
+
+        success {
+            echo 'I will only say this if successful'
+        }
+        failure {
+            echo 'I will only say this if failed'
+        }
+
     }
 }
