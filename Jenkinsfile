@@ -22,7 +22,7 @@ pipeline {
                     . venv/bin/activate
                     which python
                     python -m pytest
-                    echo "el nombe del objecto es ${params.OBJETO}, laplaya es buena si o no ${params.PLAYA}, la edad de la persona es ${params.EDAD}, el color del objeto es ${params.COLOR}"
+                    echo "el nombe del objecto es ${params.OBJETO}, laplaya es buena si o no ${params.PLAYA}, el color del objeto es ${params.COLOR}"
                 '''
                 
             }
