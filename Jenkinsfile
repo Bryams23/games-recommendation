@@ -21,9 +21,9 @@ pipeline {
                     . venv/bin/activate
                     which python
                     python -m pytest
-                    echo "el nombe del objecto es ${params.OBJETO}, laplaya es buena si o no ${params.PLAYA}, el color del objeto es ${params.COLOR}"
                 '''
-                
+                echo "el nombe del objecto es ${params.OBJETO}, laplaya es buena si o no ${params.PLAYA}, el color del objeto es ${params.COLOR}"
+
             }
         }
         stage('Deploy') {
