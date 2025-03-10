@@ -3,19 +3,17 @@ pipeline {
     stages {
         stage('Build') { 
             steps { 
-                sh '''
                     echo 'Building...'
-                    . venv/bin/activate
-                    pip install pytest
-                '''  
-
+                    sh 'ls'
         }
         }
         stage('Test') {
             steps {
                 sh '''
                     . venv/bin/activate
-                    pytest
+                    pip list
+                    which python
+                    python -m pytest
                 '''
                 
             }
