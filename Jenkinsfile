@@ -20,7 +20,6 @@ pipeline {
             steps {
                 sh '''
                     . venv/bin/activate
-                    pip list
                     which python
                     python -m pytest
                     echo "el nombe del objecto es ${params.OBJETO}, laplaya es buena si o no ${params.PLAYA}, la edad de la persona es ${params.EDAD}, el color del objeto es ${params.COLOR}"
