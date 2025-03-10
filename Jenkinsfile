@@ -24,10 +24,9 @@ pipeline {
                     which python
                     python -m pytest
                 '''
-                currentBuild.result = 'SUCCESS'
-                }
-                
                 echo "el nombe del objecto es ${params.OBJETO}, laplaya es buena si o no ${params.PLAYA}, el color del objeto es ${params.COLOR}"
+                currentBuild.result = 'SUCCESS'
+                }                            
                 catch (Exception e) {
                     echo "Error: ${e}"
                     currentBuild.result = 'FAILURE'
