@@ -44,8 +44,8 @@ pipeline {
 
             when {
                 allOf {
-                    expression { return env.PLAYA == 'true' }
-                    expression { return currentBuild.result == 'SUCCESS' }
+                    env.PLAYA == true
+                    currentBuild.result == 'SUCCESS' 
                 }
             }
 
