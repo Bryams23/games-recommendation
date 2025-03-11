@@ -53,8 +53,8 @@ pipeline {
                 echo 'Deploying.. succesfully'
             }
         }
-
-    post {
+}
+ post {
 
         success {
             echo 'I will only say this if successful'
@@ -64,5 +64,4 @@ pipeline {
         }
 
     }
-}
 }
