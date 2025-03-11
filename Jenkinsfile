@@ -38,9 +38,7 @@ pipeline {
         stage('Deploy') {
             when {
                 allof {
-                    expression {
-                        return currentBuild.result == 'SUCCESS'
-                    }
+                    environment name: 'currentBuild.result', value: 'SUCCESS'
                     environment name: 'PLAYA', value: 'true'
                 }
             }
