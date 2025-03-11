@@ -37,10 +37,13 @@ pipeline {
         }
         stage('Deploy') {
             when {
-                expression { currentBuild.result == 'SUCCESS' }
-                
+                allof {
+                    expression {
+                        return currentBuild.result == 'SUCCESS'
+                    }
+                    environment name: 'PLAYA', value: 'true'
+                }
             }
-            
             steps {
                 echo 'Deploying.. succesfully'
             }
