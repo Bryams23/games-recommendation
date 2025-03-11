@@ -9,13 +9,16 @@ pipeline {
         choice(name: 'COLOR', choices: ['rojo', 'verde', 'azul'], description: 'Color del objeto')
     }
     stages {
+
         stage('Build') { 
             steps { 
                     echo 'Building...'
                     echo "la persona se llama ${env.PERSONA}"
         }
         }
+
         stage('Test') {
+            
             steps {
                 script {
                 try {
@@ -34,18 +37,23 @@ pipeline {
                 
             }
             }
+            
         }
+
         stage('Deploy') {
+
             when {
                 allof {
                     environment name: 'currentBuild.result', value: 'SUCCESS'
                     environment name: 'PLAYA', value: 'true'
                 }
             }
+
             steps {
                 echo 'Deploying.. succesfully'
             }
         }
+
     post {
 
         success {
@@ -56,4 +64,5 @@ pipeline {
         }
 
     }
+}
 }
