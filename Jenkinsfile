@@ -57,6 +57,8 @@ pipeline {
 
         success {
             echo 'I will only say this if successful'
+                    slackSend (color: '#0000FF', message: "Build ${currentBuild.result} for ${env.JOB_NAME} - ${env.BUILD_NUMBER} - ${env.BUILD_URL}")
+
         }
         failure {
             echo 'I will only say this if failed'
