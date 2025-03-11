@@ -44,8 +44,7 @@ pipeline {
 
             when {
                 allof {
-                    expression { return env.PLAYA == 'true' }
-                    expression { return currentBuild.result == 'SUCCESS' }
+                    branch 'main'
                 }
             }
 
