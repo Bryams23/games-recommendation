@@ -43,8 +43,9 @@ pipeline {
         stage('Deploy') {
 
             when {
-                allof {
-                    branch 'main'
+                allOf {
+                    expression { return env.PLAYA == 'true' }
+                    expression { return currentBuild.result == 'SUCCESS' }
                 }
             }
 
