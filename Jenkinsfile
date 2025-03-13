@@ -5,7 +5,9 @@ pipeline {
         stage('Build') { 
             steps { 
                 echo 'building'
-                sh '''. venv/bin/activate
+                sh '''
+                python3 -m venv env
+                . venv/bin/activate
                 python -m pip install pytest            
                 '''
                 
