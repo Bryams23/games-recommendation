@@ -5,10 +5,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 echo 'building'
-                sh '''
-                . env/bin/activate
-                python -m pip install pytest            
-                '''
+
                 
                 
         }
@@ -18,7 +15,7 @@ pipeline {
             
             steps {
                 echo 'testing'
-                sh '''. venv/bin/activate
+                sh '''. env/bin/activate
                 pytest
                 '''
             }
