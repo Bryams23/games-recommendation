@@ -17,7 +17,7 @@ pipeline {
         stage('Test') {
             
             steps {
-                echo 'testing'
+                echo "${build}"
                 sh '''. env/bin/activate
                 python -m pytest 
                 '''
