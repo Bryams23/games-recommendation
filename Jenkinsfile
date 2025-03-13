@@ -5,7 +5,7 @@ pipeline {
 
         stage('Build') { 
              when {
-                            branch 'main'
+                    branch 'main'
                         }
             steps { 
                 
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo "${env.BUILD_NUMBER}"
                 sh '''. env/bin/activate
-                python -m pytest 
+                python -m pytest.segundo_test.py
                 '''
             }
             
