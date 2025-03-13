@@ -16,7 +16,7 @@ pipeline {
             steps {
                 echo 'testing'
                 sh '''. env/bin/activate
-                pytest
+                python -m pytest 
                 '''
             }
             
