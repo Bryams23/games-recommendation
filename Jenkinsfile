@@ -6,8 +6,8 @@ pipeline {
         stage('Build') { 
              when {
                         allOf {
-                        env.BUILD_NUMBER == '1'
-                        env.BRANCH_NAME == 'main'
+                        expression{env.BUILD_NUMBER == '1'}
+                        expression{env.BRANCH_NAME == 'main'}
                 }
                         }
             steps { 
