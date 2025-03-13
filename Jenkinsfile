@@ -1,13 +1,15 @@
 pipeline {
  agent any
+
     stages {
 
         stage('Build') { 
+            BUILD_NUMBER = sh(script: 'echo $BUILD_NUMBER', returnStdout: true).trim()
             steps { 
+                
                 echo 'building'
 
-                
-                
+         
         }
         }
 
