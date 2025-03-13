@@ -5,10 +5,7 @@ pipeline {
 
         stage('Build') { 
              when {
-                        allOf {
-                        build '12'
-                        branch 'main'
-                }
+                            branch 'main'
                         }
             steps { 
                 
