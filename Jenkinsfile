@@ -25,8 +25,10 @@ pipeline {
         }
 
         stage('Deploy') {
+            steps {
             echo 'deploying sdasdasf'
 
         }
 }
+    }
 }
