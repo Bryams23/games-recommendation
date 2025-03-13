@@ -1,69 +1,32 @@
 pipeline {
-    agent any
-    environment {
-        PERSONA = "Homero Simpson"
-    }
-    parameters {
-        string(name: 'OBJETO', defaultValue: 'jarrón', description: 'Nombre del objeto')
-        booleanParam(name: 'PLAYA', defaultValue: true, description: 'es rica la playa?')
-        choice(name: 'COLOR', choices: ['rojo', 'verde', 'azul'], description: 'Color del objeto')
-    }
+ agent any
     stages {
 
         stage('Build') { 
             steps { 
-                    echo 'Building...'
-                    echo "la persona se llama ${env.PERSONA}"
+                echo 'building'
+                sh '''. venv/bin/activate
+                python -m pip install pytest            
+                '''
+                
+                
         }
         }
 
         stage('Test') {
             
             steps {
-                script {
-                try {
-                 sh '''
-                    . venv/bin/activate
-                    which python
-                    python -m pytest
+                echo 'testing'
+                sh '''. venv/bin/activate
+                pytest
                 '''
-                echo "el nombe del objecto es ${params.OBJETO}, laplaya es buena si o no ${params.PLAYA}, el color del objeto es ${params.COLOR}"
-                currentBuild.result = 'SUCCESS'
-                }                            
-                catch (Exception e) {
-                    echo "Error: ${e}"
-                    currentBuild.result = 'FAILURE'
-                }
-                
-            }
             }
             
         }
 
         stage('Deploy') {
+            echo 'deploying sdasdasf'
 
-            when {
-                allOf {
-                    expression { return env.PLAYA == 'true' && currentBuild.result == 'SUCCESS'}
-                }
-            }
-
-            steps {
-                echo 'Deploying.. succesfully'
-            }
         }
 }
- post {
-
-        success {
-            echo 'I will only say this if successful'
-                    slackSend (color: '#0000FF', message: "Build ${currentBuild.result} for ${env.JOB_NAME} - ${env.BUILD_NUMBER} - ${env.BUILD_URL}")
-                    
-
-        }
-        failure {
-            echo 'I will only say this if failed'
-        }
-
-    }
 }
