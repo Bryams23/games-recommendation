@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo "${env.BUILD_NUMBER}"
                 sh '''. env/bin/activate
-                python -m pytest.segundo_test.py
+                python -m pytest.segundo_test
                 '''
             }
             
