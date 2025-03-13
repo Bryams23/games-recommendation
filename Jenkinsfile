@@ -6,7 +6,7 @@ pipeline {
         stage('Build') { 
              when {
                         allOf {
-                        expression{env.BUILD_NUMBER == '1'}
+                        expression{env.BUILD_NUMBER == '11'}
                         expression{env.BRANCH_NAME == 'main'}
                 }
                         }
