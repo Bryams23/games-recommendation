@@ -6,8 +6,7 @@ pipeline {
             steps { 
                 echo 'building'
                 sh '''
-                python3 -m venv env
-                . venv/bin/activate
+                . env/bin/activate
                 python -m pip install pytest            
                 '''
                 
