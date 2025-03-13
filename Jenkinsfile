@@ -4,18 +4,15 @@ pipeline {
     stages {
 
         stage('Build') { 
-
+             when {
+                        allOf {
+                        env.BUILD_NUMBER == '1'
+                        env.BRANCH_NAME == 'main'
+                }
+                        }
             steps { 
                 
                 echo 'building'
-                allOf {
-                    when {
-                        env.BUILD_NUMBER == '1'
-                        env.BRANCH_NAME == 'main'
-                        }
-                }
-           
-
          
         }
         }
