@@ -12,7 +12,7 @@ pipeline {
                         expression {
                             params.BRANCH_NAME == 'main'
                         }
-                        environment name: 'BUILD_NUMBER', value: '20'
+                        environment name: 'BUILD_NUMBER', value: '21'
                     }
                         }
             steps { 

@@ -2,7 +2,7 @@ import pytest
 from sum import substrat
 
 
-def test_add():
+def test_subs():
     assert substrat(2, 3) == 5
     assert substrat(-1, 1) == -2
     assert substrat(0, 0) == 0
