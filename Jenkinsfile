@@ -12,7 +12,7 @@ pipeline {
                         expression {
                             params.BRANCH_NAME == 'main'
                         }
-                        environment name: 'BUILD_NUMBER', value: '16'
+                        environment name: 'BUILD_NUMBER', value: '19'
                     }
                         }
             steps { 
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 echo "${env.BUILD_NUMBER}"
                 sh '''. env/bin/activate
-                python -m pytest.segundo_test
+                python -m pytest tests/segundo_test.py
                 '''
             }
             
