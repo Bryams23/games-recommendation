@@ -16,13 +16,15 @@ def home():
 	urls = {
 			'genres': 'fields name; where id =',
 			'release_dates': 'fields human; where id =',
-			'platforms': 'fields abbreviation,alternative_name,category,checksum,created_at,generation,name,platform_family,platform_logo,slug,summary,updated_at,url,versions,websites; where id = '
+			'platforms': 'fields abbreviation,alternative_name,category,checksum,created_at,generation,name,platform_family,platform_logo,slug,summary,updated_at,url,versions,websites; where id = ',
+			'rating': 'fields rating_category; where id ='
 		}
 	#root post request
 	response = post('https://api.igdb.com/v4/games', **{'headers': {'Client-ID': 'rpx9sjp7kxzp4nzk2v5qjpg2scl8cw', 'Authorization': 'Bearer ivv1gvdyi46udh4ow9xx9lstyepek3' },'data': 'fields *; limit 5;' })
 	
  
 	for i in range(len(response.json())):
+		print(i)
 		arrayGenres = []
 		arrayRelease = []
 		plataforma = []
@@ -53,7 +55,7 @@ def home():
 			if response.json()[i].get(category) is None:
 				continue
 			for cat in response.json()[i].get(category):
-				print(cat)
+			
 				
 				responsePerCategory = post(f'https://api.igdb.com/v4/{category}', 
                                **{'headers': {'Client-ID': 'rpx9sjp7kxzp4nzk2v5qjpg2scl8cw', 'Authorization': 'Bearer ivv1gvdyi46udh4ow9xx9lstyepek3' },
@@ -65,6 +67,8 @@ def home():
 						arrayRelease.append(responsePerCategory.json()[0]['human'])
 					case "platforms":
 						plataforma.append(responsePerCategory.json()[0]['name'])
+					case "rating":
+						Ratings.append(responsePerCategory.json()[0]['rating_category'])
 					case _:
 						pass
 			match category:
@@ -74,6 +78,8 @@ def home():
 					content[i][category] = arrayRelease
 				case "platforms":
 					content[i][category] = plataforma
+				case "rating":
+					content[i][category] = Ratings
 				case _:
 					pass
 				

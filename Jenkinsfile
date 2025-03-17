@@ -1,11 +1,19 @@
 pipeline {
  agent any
+ parameters {
+    string(name: 'BRANCH_NAME', defaultValue: 'main', description: 'branch name')
+}
 
     stages {
 
         stage('Build') { 
              when {
-                    branch 'main'
+                    allOf {
+                        expression {
+                            params.BRANCH_NAME == 'main'
+                        }
+                        environment name: 'BUILD_NUMBER', value: '16'
+                    }
                         }
             steps { 
                 

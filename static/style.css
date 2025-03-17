@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
     }
+    body {
+    background-image: linear-gradient(150deg, #fffdff 0%, #5d7072);
+    }
     .version1 {
         font-size: 32px;
         color: #f80000;
@@ -30,6 +33,26 @@
         font-size: 18px;
         font-weight: 300;
         letter-spacing: 2px;
+    }
+    .version5 {
+    font-family: times, Times New Roman, times-roman, georgia, serif;
+	color: #444;
+	margin: 0;
+	padding: 0px 0px 6px 0px;
+	font-size: 51px;
+	line-height: 44px;
+	letter-spacing: -2px;
+	font-weight: bold;
+    }
+    .version6 {
+        font-family: times, Times New Roman, times-roman, georgia, serif;
+        color: #252525;
+        margin: 0;
+        padding: 0px 0px 6px 0px;
+        font-size: 34px;
+        line-height: 25px;
+        letter-spacing: -2px;
+        font-weight: bold;
     }
     button {
     background-color: #4CAF50;
