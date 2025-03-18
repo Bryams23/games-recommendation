@@ -8,11 +8,11 @@ pipeline {
 
         stage('Build') { 
              when {
-                    allOf {
+                    anyOf {
                         expression {
-                            params.BRANCH_NAME == 'main'
+                            params.BRANCH_NAME == 'master'
                         }
-                        environment name: 'BUILD_NUMBER', value: '22'
+                        environment name: 'BUILD_NUMBER', value: '23'
                     }
                         }
             steps { 
